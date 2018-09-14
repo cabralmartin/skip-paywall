@@ -8,8 +8,13 @@
     "js": ["contentScript.js"],
     "run_at": "document_idle"
   }],
+  "background": {
+    "scripts": ["backgroundScript.js"],
+    "persistent": false
+  },
   "permissions": [
     "activeTab",
+    "cookies",
     "*://*/*"
   ]
 }
