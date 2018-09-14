@@ -1,0 +1,15 @@
+{
+  "name": "Skip Paywall",
+  "version": "0.1",
+  "description": "Skip Paywall for lanacion.com",
+  "manifest_version": 2,
+  "content_scripts": [{
+    "matches": ["https://*.lanacion.com.ar/*"],
+    "js": ["contentScript.js"],
+    "run_at": "document_idle"
+  }],
+  "permissions": [
+    "activeTab",
+    "*://*/*"
+  ]
+}
