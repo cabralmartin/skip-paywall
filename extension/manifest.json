@@ -5,11 +5,11 @@
   "manifest_version": 2,
   "content_scripts": [{
     "matches": ["https://*.lanacion.com.ar/*"],
-    "js": ["contentScript.js"],
+    "js": ["content.js"],
     "run_at": "document_idle"
   }],
   "background": {
-    "scripts": ["backgroundScript.js"],
+    "scripts": ["background.js"],
     "persistent": false
   },
   "permissions": [

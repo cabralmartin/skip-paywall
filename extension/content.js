@@ -1,18 +1,16 @@
 (() => {
 
-  const TIMEOUT = 3500;
+  const TIMEOUT = 3100;
 
   var scriptContent = `
     const TIMEOUT = 3000;
-    console.log('Loading magic in ', TIMEOUT);
     setTimeout(() => {
       if (typeof _apw === 'undefined') {
-        console.log('_apw not found, exiting');
+        // TODO: This should execute a retry policy
+        console.error('_apw not found, exiting');
       } else  {
         _apw = null;
         localStorage.clear();
-        document.cookie.split(";").forEach(function(c) { document.cookie = c.replace(/^ +/, "").replace(/=.*/, "=;expires=" + new Date().toUTCString() + ";path=/"); });
-        console.log('Magic done.');
       }
     }, TIMEOUT);`;
 
@@ -26,6 +24,6 @@
   // This needs to happen AFTER the injected script runs
   // Otherwise the cookies will be regenerated
   setTimeout(() => {
-    chrome.runtime.sendMessage({ 1:1 });
+    chrome.runtime.sendMessage({});
   }, TIMEOUT)
 })();
